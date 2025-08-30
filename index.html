@@ -1053,7 +1053,14 @@ function generateWhatsAppLink() {
   const phone = "+917282814898";
 
   whatsappBtn.style.display = "block";
-  whatsappBtn.onclick = () => window.open(`${baseUrl}?phone=${phone}&text=${encoded}`, "_blank");
+whatsappBtn.onclick = () => {window.open(`${baseUrl}?phone=${phone}&text=${encoded}`, "_blank");
+   // Immediately clear the cart
+  cart.length = 0;
+  updateCart();
+
+  document.getElementById("address").value = "";
+
+  };
 }
 
 // 🔹 Auto update WhatsApp when typing address
